@@ -150,7 +150,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
   <div class="nav-tab" data-ch="18"><span class="n">18</span>배포·설정</div>
   <div class="nav-tab" data-ch="19"><span class="n">19</span>테스트</div>
   <div class="nav-tab" data-ch="20"><span class="n">20</span>SEO</div>
-  <div class="nav-tab" data-ch="21"><span class="n">21</span>크론탭</div>
+  <div class="nav-tab" data-ch="21"><span class="n">21</span>크론탭·슬랙</div>
   <div class="nav-tab" data-ch="22"><span class="n">22</span>글 꾸미기</div>
   <div class="nav-tab" data-ch="23"><span class="n">23</span>유지보수</div>
 </div></div>
@@ -354,13 +354,30 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 <div class="ch-head"><div class="ch-num">Chapter 02</div><h2>Xshell로 서버 접속</h2><p class="ch-desc">내 컴퓨터에서 서버를 원격 조종합니다.</p></div>
 <div class="ch-summary">💬 내 PC에서 서버를 원격 조종하는 프로그램을 깝니다.</div>
 <div class="s"><h3>🔐 SSH = 서버에 전화 걸기</h3>
-<p>내 컴퓨터에서 서버에 원격으로 접속하는 방법입니다. 카카오톡으로 전화 거는 것처럼, Xshell이라는 프로그램으로 서버에 연결합니다. 아까 만든 .pem 파일이 전화번호이자 비밀번호 역할입니다.</p></div>
-<div class="s"><h3>📥 Xshell 설정</h3>
+<p>내 컴퓨터에서 서버에 원격으로 접속하는 방법입니다. 카카오톡으로 전화 거는 것처럼, SSH 프로그램으로 서버에 연결합니다. 아까 만든 .pem 파일이 전화번호이자 비밀번호 역할입니다.</p></div>
+
+<div class="s"><h3>📥 SSH 프로그램 설치 & 설정</h3>
+<div class="br" id="br-ssh"><div class="br-tabs">
+  <div class="br-tab active" data-br="xsh">🪟 Windows — Xshell</div>
+  <div class="br-tab" data-br="ter">🍎 Mac — Termius</div>
+</div>
+<div class="br-con active" data-br="xsh"><h4>Xshell (Windows 전용, 무료)</h4>
 <div class="flow">
   <div class="flow-s"><div class="flow-m"><div class="flow-d">1</div><div class="flow-l"></div></div><div class="flow-c"><h4>Xshell 다운로드</h4><p>netsarang.com → "무료 라이선스 (가정/학교)" 버전 다운</p></div></div>
   <div class="flow-s"><div class="flow-m"><div class="flow-d">2</div><div class="flow-l"></div></div><div class="flow-c"><h4>새 세션 → 호스트에 탄력적 IP 입력</h4><p>파일 → 새로 만들기 → 호스트란에 IP 주소</p></div></div>
   <div class="flow-s"><div class="flow-m"><div class="flow-d">3</div><div class="flow-l"></div></div><div class="flow-c"><h4>인증 설정</h4><p>방법: Public Key / 사용자: <strong>ubuntu</strong> / 키 파일: <strong>.pem 파일</strong> 선택</p></div></div>
   <div class="flow-s"><div class="flow-m"><div class="flow-d">4</div></div><div class="flow-c"><h4>연결 → "ubuntu@ip-xxx:~$" 보이면 성공!</h4><p>축하합니다! 이 화면이 서버를 조종할 수 있는 상태입니다. 여기에 명령어를 입력하면 서버가 실행합니다</p></div></div>
+</div>
+</div>
+<div class="br-con" data-br="ter"><h4>Termius (Mac 전용, 무료)</h4>
+<p>Xshell은 Windows 전용이라 Mac에서는 쓸 수 없습니다. Mac 사용자는 <strong>Termius</strong>를 쓰세요. 깔끔하고 무료이며, Xshell과 하는 일은 똑같습니다.</p>
+<div class="flow">
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">1</div><div class="flow-l"></div></div><div class="flow-c"><h4>Termius 다운로드</h4><p>termius.com 또는 <strong>App Store</strong>에서 "Termius" 검색 → 설치 (무료 계정으로 충분)</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">2</div><div class="flow-l"></div></div><div class="flow-c"><h4>새 호스트 추가</h4><p>좌측 <strong>"Hosts"</strong> → <strong>"+ New Host"</strong> → Address에 <strong>탄력적 IP</strong> 입력</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">3</div><div class="flow-l"></div></div><div class="flow-c"><h4>인증 설정</h4><p>Username: <strong>ubuntu</strong> → Keys 항목에서 <strong>"+ Key"</strong> → <strong>"Import from file"</strong> → <strong>.pem 파일</strong> 선택</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">4</div></div><div class="flow-c"><h4>더블클릭으로 접속 → "ubuntu@ip-xxx:~$" 보이면 성공!</h4><p>Xshell과 동일한 화면입니다. 여기서부터는 입력하는 명령어가 전부 같습니다</p></div></div>
+</div>
+</div>
 </div></div>
 <div class="s"><h3>⌨️ 쉘 기본 사용법 (꼭 읽으세요!)</h3>
 <p>Xshell은 일반 프로그램과 <strong>복사/붙여넣기 방법이 다릅니다.</strong></p>
@@ -440,9 +457,8 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 
 <span class="c"># MySQL 보안 설정 (비밀번호 등)</span>
 <span class="cmd">sudo mysql_secure_installation</span>
-<span class="out">→ 첫 번째 질문 "VALIDATE PASSWORD COMPONENT" → N (비밀번호 규칙이 복잡해져서 나중에 막힘)</span>
-<span class="out">→ root 비밀번호 설정 → 원하는 비밀번호 입력</span>
-<span class="out">→ 나머지 질문은 전부 Y</span>
+<span class="out">→ 질문이 여러 개 나옴. 대부분 Y 선택하면 됨</span>
+<span class="out">→ 비밀번호 강도는 0(LOW)으로 해도 OK</span>
 
 <span class="c"># MySQL 접속해서 워드프레스용 DB 만들기</span>
 <span class="c"># ↓ 아래 명령어를 한 줄씩 그대로 복사 붙여넣기 하세요. 외울 필요 없습니다</span>
@@ -501,12 +517,18 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 <div class="term-b"><span class="c"># mod_rewrite 활성화 (퍼머링크에 필요)</span>
 <span class="cmd">sudo a2enmod rewrite</span>
 
-<span class="c"># Apache가 .htaccess를 읽을 수 있게 설정 (한 줄로 끝)</span>
-<span class="cmd">sudo sed -i '/&lt;Directory \/var\/www\/&gt;/,/&lt;\/Directory&gt;/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf</span>
+<span class="c"># Apache가 .htaccess를 읽을 수 있게 설정</span>
+<span class="cmd">sudo nano /etc/apache2/apache2.conf</span>
+<span class="c"># ↓ nano 에디터가 열리면:</span>
+<span class="c"># 1. 화살표 키로 이동 (마우스 안 됨)</span>
+<span class="c"># 2. &lt;Directory /var/www/&gt; 부분을 찾기</span>
+<span class="c"># 3. AllowOverride None → AllowOverride All 로 수정</span>
+<span class="c"># 4. Ctrl+O → Enter (저장)</span>
+<span class="c"># 5. Ctrl+X (나가기)</span>
 
 <span class="c"># Apache 재시작</span>
 <span class="cmd">sudo systemctl restart apache2</span></div></div>
-<div class="box tip"><div class="box-t">위 sed 명령어가 안 되면</div><p><code>sudo nano /etc/apache2/apache2.conf</code>로 직접 열어서 <strong>&lt;Directory /var/www/&gt;</strong> 부분을 찾고, <strong>AllowOverride None</strong>을 <strong>AllowOverride All</strong>로 바꾸세요. 저장은 Ctrl+O → Enter, 나가기는 Ctrl+X. 그래도 어려우면 AI에게 물어보세요.</p></div></div>
+<div class="box tip"><div class="box-t">nano 편집기가 어렵다면</div><p>AI에게 "apache2.conf에서 AllowOverride All로 바꾸는 sed 명령어 알려줘"라고 하면 한 줄 명령어로 해결할 수 있습니다.</p></div></div>
 
 <div class="s"><h3>2️⃣ PHP 필수 모듈 설치</h3>
 <div class="box tip"><div class="box-t">CH04에서 이미 설치했다면</div><p>Chapter 04에서 PHP 모듈을 이미 설치했으면 <strong>이 단계는 건너뛰세요.</strong> 다시 실행해도 문제는 없지만 불필요합니다.</p></div>
@@ -547,6 +569,19 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
   <tr><td>테이블 접두어</td><td>wp_ (그대로)</td></tr>
 </tbody></table>
 <p>그 다음 사이트 제목, 관리자 아이디/비밀번호 설정하면 워드프레스 설치 완료!</p></div>
+
+<div class="s"><h3>6️⃣ 테마 설치 (GeneratePress 추천)</h3>
+<p>워드프레스가 설치되면 기본 테마가 적용되어 있는데, <strong>블로그용 테마로 바꿔야</strong> 합니다. 테마는 <strong>GeneratePress</strong>를 추천합니다. 가볍고, 빠르고, SEO에 유리하며, 커스터마이징이 쉽습니다.</p>
+<div class="nl">
+  <div class="ni"><div class="nb">1</div><div class="nt">WP 관리자 → <strong>외모 → 테마 → 새로 추가</strong></div></div>
+  <div class="ni"><div class="nb">2</div><div class="nt">"GeneratePress" 검색 → <strong>설치 → 활성화</strong></div></div>
+</div>
+<div class="box tip"><div class="box-t">테마 디자인은 이 가이드에서 다루지 않습니다</div>
+<p>이 가이드는 <strong>자동 포스팅 시스템 구축</strong>에 집중하는 기술 가이드입니다. 테마 꾸미기(레이아웃, 색상, 메뉴, 위젯 등)는 별도로 학습하시는 걸 추천드립니다.</p>
+<p>아래 영상을 따라하면 GeneratePress 테마 설정부터 <strong>SEO 플러그인(RankMath) 셋팅까지 한 번에</strong> 끝낼 수 있습니다:</p>
+<p><a href="https://www.youtube.com/watch?v=3zIjpcRQvCI&t=790s" target="_blank" style="color:var(--gold);text-decoration:underline">📺 GeneratePress + RankMath 설정 영상 보기 →</a><br><strong style="color:var(--gold)">⭐ 4-5부터 보세요.</strong> 그 앞부분은 서버 셋팅인데, 우리는 이미 CH01~CH04에서 끝냈습니다.</p>
+<p>테마 디자인과 기본 SEO 설정을 마친 뒤, 이 가이드의 다음 챕터로 넘어오시면 됩니다.</p>
+</div></div>
 
 <div class="box tip"><div class="box-t">환경마다 다를 수 있습니다</div><p>서버 OS 버전, PHP 버전, MySQL 버전에 따라 위 명령어가 안 먹을 수 있습니다. 에러가 나면 <strong>에러 메시지를 그대로 복사해서 AI에게 보여주세요.</strong> "ubuntu 24.04에서 워드프레스 설치하는데 이런 에러 나왔어" — AI가 환경에 맞는 해결법을 알려줍니다. 공식 문서는 <strong>wordpress.org/documentation</strong>을 참고하세요.</p></div>
 <div class="box tip"><div class="box-t">환경마다 다릅니다</div><p>서버 환경, 설정, 데이터에 따라 결과가 다를 수 있습니다. 에러가 나거나 예상과 다르면 <strong>AI에게 상황을 설명하고 함께 해결</strong>해 나가세요. 그 과정 자체가 실력이 됩니다.</p></div>
@@ -591,8 +626,7 @@ Cloudflare Origin Certificate를 설치하려고 해.
 서버에 파일로 저장하고 Apache SSL 설정하는
 명령어를 하나씩 알려줘.
 
-추가로 HTTP → HTTPS 자동 리다이렉트도 설정해줘."</div></div>
-<div class="box tip"><div class="box-t">참고: 인증서 저장 위치</div><p>AI가 안내해주겠지만, 보통 인증서는 <strong>/etc/ssl/certs/</strong>에, 키는 <strong>/etc/ssl/private/</strong>에 저장합니다. Apache SSL 설정 파일은 <strong>/etc/apache2/sites-available/</strong> 안에 있습니다. 이 단계가 안 되면 사이트 접속 자체가 안 되니, AI가 알려주는 대로 하나씩 따라하세요.</p></div></div>
+추가로 HTTP → HTTPS 자동 리다이렉트도 설정해줘."</div></div></div>
 
 <div class="s"><h3>⚠️ 워드프레스 HTTPS 설정</h3>
 <p>SSL 적용 후 워드프레스에서 주소가 안 맞으면 오류가 날 수 있습니다. wp-config.php를 수정해야 합니다.</p>
@@ -854,8 +888,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 <div class="s"><h3>🔒 config 보안</h3>
 <div class="box danger"><div class="box-t">절대 금지</div><p>config 파일을 GitHub에 올리거나 /var/www/html/에 두지 마세요. 비밀번호, API 키 노출 = 과금 폭탄.</p></div>
 <div class="term"><div class="term-h"><div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div><span class="term-tt">Xshell</span></div>
-<div class="term-b"><span class="cmd">chmod 600 ~/crawler/config.js</span></div></div>
-<div class="box tip"><div class="box-t">PHP 쪽 DB 비밀번호는요?</div><p>autopost.php 같은 PHP 파일은 워드프레스의 <strong>wp-config.php</strong>를 통해 DB에 접근합니다. wp-config.php에 이미 DB 비밀번호가 들어있으니 별도 config.php를 만들 필요 없습니다. Gemini API 키 등 추가 설정이 필요하면 AI가 코드를 만들 때 <strong>config.php를 별도로 만들어줄 수도 있습니다</strong> — 그 경우에도 /var/www/html/ 바깥에 두고 권한을 잠그세요.</p></div></div>
+<div class="term-b"><span class="cmd">chmod 600 ~/crawler/config.js</span></div></div></div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(10)">← DB 설계</button><button class="ch-btn" onclick="go(12)">다음: Gemini API →</button></div>
 </div>
 
@@ -878,7 +911,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 <div class="ch-head"><div class="ch-num">Chapter 13</div><h2>Puppeteer 소개 & 요소 찾기</h2><p class="ch-desc">브라우저를 자동 조종합니다. 그리고 "어디를 긁을지" AI에게 알려주는 법.</p></div>
 <div class="ch-summary">💬 어떤 사이트에서 어떤 부분을 긁을지 확인합니다.</div>
 <div class="s"><h3>🕷 쉽게 말하면</h3>
-<p>사람이 브라우저에서 하는 모든 행동(접속, 스크롤, 클릭, 복사)을 <strong>코드가 자동으로</strong> 수행합니다. 여러분이 매일 사이트에 들어가서 데이터를 하나하나 복사하는 대신, 코드가 대신 해줍니다. 눈에 안 보이는 크롬을 서버에서 돌리는 겁니다. 이걸 가능하게 해주는 도구가 <strong>Puppeteer</strong>(퍼페티어)이고, Chapter 07에서 설치한 Node.js 위에서 돌아갑니다. 앞으로 프롬프트에서 "Puppeteer로 크롤링"이라고 쓰는 건 이 도구를 말하는 겁니다.</p>
+<p>사람이 브라우저에서 하는 모든 행동(접속, 스크롤, 클릭, 복사)을 <strong>코드가 자동으로</strong> 수행합니다. 여러분이 매일 사이트에 들어가서 데이터를 하나하나 복사하는 대신, 코드가 대신 해줍니다. 눈에 안 보이는 크롬을 서버에서 돌리는 겁니다.</p>
 <div class="box tip"><div class="box-t">데이터가 이미 있다면</div><p>이 챕터와 다음 챕터를 건너뛰고 Chapter 15(이미지)로 가세요.</p></div></div>
 
 <div class="s"><h3>🛡 사람처럼 행동하기</h3>
@@ -921,7 +954,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 
 <div class="box tip"><div class="box-t">이것도 어려우면</div><p>AI에게 <strong>"크롬 F12 개발자 도구에서 요소 선택하고 Copy element(요소 복사) 하는 방법을 단계별로 자세하게 알려줘"</strong>라고 물어보세요. 또는 방법 2(페이지 소스 통째로 복사)를 쓰면 이 과정이 필요 없습니다.</p></div>
 <div class="prompt"><div class="prompt-h">🤖 AI에게 이렇게</div>
-<div class="prompt-b">"이 사이트를 Puppeteer로 크롤링하려고 해: <span class="v">[URL]</span>
+<div class="prompt-b">"이 사이트를 크롤링하려고 해: <span class="v">[URL]</span>
 
 가져올 데이터:
 - 호텔 이름: 이 요소에 있어 → <span class="v">[Copy element 결과 붙여넣기]</span>
@@ -938,7 +971,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
   <div class="ni"><div class="nb">3</div><div class="nt">AI에게 통째로 보여주기</div></div>
 </div>
 <div class="prompt"><div class="prompt-h">🤖 AI에게 이렇게</div>
-<div class="prompt-b">"이 사이트를 Puppeteer로 크롤링하려고 해: <span class="v">[URL]</span>
+<div class="prompt-b">"이 사이트를 크롤링하려고 해: <span class="v">[URL]</span>
 
 아래가 이 페이지의 전체 소스야:
 <span class="v">[Ctrl+A로 복사한 소스 전체 붙여넣기]</span>
@@ -964,7 +997,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 <div class="s"><h3>방식 1: 요소 지정 크롤링</h3>
 <p>앞 챕터에서 F12로 찾아둔 셀렉터로 <strong>항목별로 쪼개서</strong> 가져옵니다. 정확하고 깔끔합니다.</p>
 <div class="prompt"><div class="prompt-h">🤖 Claude에게 이렇게</div>
-<div class="prompt-b">"이 사이트를 Puppeteer로 크롤링하려고 해: <span class="v">[URL]</span>
+<div class="prompt-b">"이 사이트를 크롤링하려고 해: <span class="v">[URL]</span>
 
 앞에서 확인한 요소 정보:
 <span class="v">[F12로 복사한 요소 정보]</span>
@@ -982,7 +1015,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 <div class="s"><h3>방식 2: 통째로 가져와서 AI 정리</h3>
 <p>페이지를 통째로 긁어온 뒤 <strong>Gemini에게 정리시키는</strong> 방식입니다. 셀렉터를 안 찾아도 돼서 초보자에게 더 쉽습니다.</p>
 <div class="prompt"><div class="prompt-h">🤖 Claude에게 이렇게</div>
-<div class="prompt-b">"이 사이트를 Puppeteer로 크롤링하려고 해: <span class="v">[URL]</span>
+<div class="prompt-b">"이 사이트를 크롤링하려고 해: <span class="v">[URL]</span>
 
 페이지를 통째로 가져온 뒤
 Gemini에게 보내서 아래 항목을 정리시키고 싶어:
@@ -1201,23 +1234,6 @@ Gemini가 JSON 형태로 정리해서 돌려주면
 4. 복구한 건수를 슬랙으로 알림
 
 이 규칙 맞아? 30분마다 실행하려고 해."</div></div></div>
-
-<div class="s"><h3>📱 슬랙 모니터링</h3>
-<p>위에서 정한 자동 발행, 에러 복구 규칙에 모두 "슬랙으로 알림"이 들어가 있습니다. 이 알림을 실제로 받으려면 슬랙을 연결해야 합니다.</p>
-<div class="flow">
-  <div class="flow-s"><div class="flow-m"><div class="flow-d">1</div><div class="flow-l"></div></div><div class="flow-c"><h4>slack.com 가입 → 워크스페이스 생성 (무료)</h4><p>이메일로 가입</p></div></div>
-  <div class="flow-s"><div class="flow-m"><div class="flow-d">2</div><div class="flow-l"></div></div><div class="flow-c"><h4>앱 → "Incoming Webhooks" 추가</h4><p>슬랙 앱 디렉토리에서 검색 → 설치 → 채널 선택</p></div></div>
-  <div class="flow-s"><div class="flow-m"><div class="flow-d">3</div><div class="flow-l"></div></div><div class="flow-c"><h4>Webhook URL 복사 → config에 저장</h4><p>이 URL로 메시지 보내면 슬랙에 알림</p></div></div>
-  <div class="flow-s"><div class="flow-m"><div class="flow-d">4</div></div><div class="flow-c"><h4>AI에게 slack.php 만들어달라 하기</h4><p>아래 프롬프트 사용</p></div></div>
-</div>
-<div class="box tip"><div class="box-t">슬랙은 기획서에 포함됩니다</div><p>아래에서 .md 기획서를 만들 때 슬랙 알림 규칙도 같이 넣으면, 코드 생성 시 <strong>slack.php가 자동으로 만들어집니다.</strong> 이미 코드에 포함되어 있다면 Webhook URL만 config에 넣으면 됩니다.</p></div>
-<div class="prompt"><div class="prompt-h">🤖 기획서에 슬랙 규칙 추가 안 했다면</div>
-<div class="prompt-b">"PHP로 슬랙 알림 보내는 함수 만들어줘.
-함수: sendSlack($message, $type)
-$type: 'success'✅, 'error'🚨, 'info'📋
-Webhook URL은 config에서 가져오기.
-다른 PHP 파일에서 require_once로 쓸 수 있게."</div></div></div>
-
 <div class="s"><h3>📄 기획서(.md) 만들기 & 코드 생성</h3>
 <p>여기까지 챕터를 따라오면서 정한 내용들 — 블로그 주제, 글 구조, DB 설계, 파일 구조, Gemini API, 크롤링 대상, 이미지 규칙, AI 프롬프트 — 이것들이 <strong>전부 기획</strong>입니다.</p>
 <p>이제 이 기획을 하나의 .md 파일로 정리하고, AI에게 코드를 만들어달라고 시킵니다.</p></div>
@@ -1444,14 +1460,46 @@ Open Graph 태그 자동 생성 코드 만들어줘.
 <p><strong>autopost.php</strong> = 자동 발행 시 SEO 데이터 자동 주입 (코드 추가)</p>
 <p><strong>functions.php</strong> = OG태그, 스키마 등 추가 최적화 (코드 추가)</p>
 </div></div>
+
+<div class="s"><h3>4단계: 검색엔진에 내 사이트 등록</h3>
+<p>글을 아무리 잘 써도, <strong>검색엔진에 내 사이트를 알려주지 않으면</strong> 구글과 네이버가 내 사이트 존재를 모릅니다. 사이트맵, RSS 피드, robots.txt를 등록해서 "여기 새 글 있으니 수집해가세요"라고 알려주는 겁니다.</p>
+<div class="box tip"><div class="box-t">먼저 확인하세요</div>
+<p>RankMath를 설치하면 사이트맵이 자동 생성됩니다. 아래 주소로 접속해서 확인하세요:</p>
+<p>• 사이트맵: <strong>https://내도메인/sitemap_index.xml</strong></p>
+<p>• RSS 피드: <strong>https://내도메인/feed/</strong></p>
+<p>• robots.txt: <strong>https://내도메인/robots.txt</strong></p>
+<p>각각 접속했을 때 페이지가 나오면 정상입니다. 안 나오면 AI에게 물어보세요.</p>
+</div></div>
+
+<div class="s"><h3>🔍 Google Search Console 등록</h3>
+<p><strong>구글 검색</strong>에 내 사이트가 노출되려면 필수입니다.</p>
+<div class="flow">
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">1</div><div class="flow-l"></div></div><div class="flow-c"><h4>search.google.com/search-console 접속</h4><p>구글 계정 로그인 → <strong>"URL 접두어"</strong> 선택 → https://내도메인 입력</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">2</div><div class="flow-l"></div></div><div class="flow-c"><h4>소유권 확인</h4><p>RankMath 설정 마법사에서 이미 연결했으면 자동 인증. 안 했으면 HTML 태그 방식 추천 — AI에게 "구글 서치콘솔 소유권 확인 방법 알려줘"라고 물어보세요</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">3</div><div class="flow-l"></div></div><div class="flow-c"><h4>사이트맵 제출 ⭐</h4><p>좌측 메뉴 <strong>"Sitemaps"</strong> → 주소 입력란에 <strong>sitemap_index.xml</strong> 입력 → <strong>"제출"</strong>. 1단계에서 RankMath 설정 마법사를 통해 Search Console을 연결했다면 <strong>사이트맵이 이미 등록되어 있을 수 있습니다.</strong> "제출됨" 상태로 보이면 이 단계는 건너뛰세요.</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">4</div><div class="flow-l"></div></div><div class="flow-c"><h4>RSS 피드 제출 ⭐</h4><p>같은 화면에서 한 번 더 — 주소 입력란에 <strong>feed/</strong> 입력 → <strong>"제출"</strong>. RSS를 등록하면 새 글이 올라올 때 구글이 더 빨리 발견합니다</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">5</div></div><div class="flow-c"><h4>robots.txt 수집 요청</h4><p>상단 검색창(URL 검사)에 <strong>https://내도메인/robots.txt</strong> 입력 → 결과 나오면 <strong>"색인 생성 요청"</strong> 클릭. 구글이 내 사이트의 크롤링 규칙을 인식하게 됩니다</p></div></div>
+</div></div>
+
+<div class="s"><h3>🇰🇷 네이버 서치어드바이저 등록</h3>
+<p>한국 대상 블로그라면 <strong>네이버 검색 노출</strong>도 필수입니다.</p>
+<div class="flow">
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">1</div><div class="flow-l"></div></div><div class="flow-c"><h4>searchadvisor.naver.com 접속</h4><p>네이버 계정 로그인 → <strong>"사이트 추가"</strong> → https://내도메인 입력</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">2</div><div class="flow-l"></div></div><div class="flow-c"><h4>소유권 확인</h4><p><strong>"HTML 태그"</strong> 방식 추천 → 메타 태그를 복사해서 워드프레스 &lt;head&gt;에 넣기. 방법 모르면 AI에게 "네이버 서치어드바이저 HTML 태그를 워드프레스에 넣는 법 알려줘"라고 물어보세요</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">3</div><div class="flow-l"></div></div><div class="flow-c"><h4>사이트맵 제출 ⭐</h4><p>좌측 <strong>"요청" → "사이트맵 제출"</strong> → <strong>https://내도메인/sitemap_index.xml</strong> 입력 → <strong>"확인"</strong></p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">4</div><div class="flow-l"></div></div><div class="flow-c"><h4>RSS 피드 제출 ⭐</h4><p>좌측 <strong>"요청" → "RSS 제출"</strong> → <strong>https://내도메인/feed/</strong> 입력 → <strong>"확인"</strong></p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">5</div></div><div class="flow-c"><h4>robots.txt 수집 요청</h4><p>좌측 <strong>"검증" → "robots.txt"</strong> → <strong>"수집 요청"</strong> 클릭. 네이버가 내 사이트의 크롤링 규칙을 확인하게 됩니다</p></div></div>
+</div>
+<div class="box tip"><div class="box-t">등록 후 바로 노출 안 됩니다</div><p>사이트맵과 RSS를 등록해도 검색 결과에 반영되기까지 <strong>며칠~몇 주</strong> 걸릴 수 있습니다. 정상입니다. 글이 꾸준히 쌓이면 점점 빨라집니다.</p></div></div>
+
 <div class="box tip"><div class="box-t">환경마다 다릅니다</div><p>서버 환경, 설정, 데이터에 따라 결과가 다를 수 있습니다. 에러가 나거나 예상과 다르면 <strong>AI에게 상황을 설명하고 함께 해결</strong>해 나가세요. 그 과정 자체가 실력이 됩니다.</p></div>
-<div class="ch-nav"><button class="ch-btn" onclick="go(19)">← 테스트</button><button class="ch-btn" onclick="go(21)">다음: 크론탭 →</button></div>
+<div class="ch-nav"><button class="ch-btn" onclick="go(19)">← 테스트</button><button class="ch-btn" onclick="go(21)">다음: 크론탭·슬랙 →</button></div>
 </div>
 
 
 
 <div class="ch" data-ch="21">
-<div class="ch-head"><div class="ch-num">Chapter 21</div><h2>크론탭 자동화</h2><p class="ch-desc">시간표 자동 실행 + 권한 설정.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 21</div><h2>크론탭 자동화 & 슬랙</h2><p class="ch-desc">시간표 자동 실행 + 권한 설정 + 슬랙 알림.</p></div>
 <div class="ch-summary">💬 정해진 시간에 자동으로 돌아가게 설정합니다.</div>
 <div class="s"><h3>⏰ 크론탭 = 알람 시계</h3>
 <p>"매일 몇 시에 이 파일 실행해" 설정하면 서버가 알아서 합니다.</p></div>
@@ -1529,6 +1577,20 @@ Open Graph 태그 자동 생성 코드 만들어줘.
 그리고 이 .sh 파일들을 크론탭에 등록하는 방법도
 순서대로 알려줘."</div></div></div>
 
+<div class="s"><h3>📱 슬랙 모니터링</h3>
+<div class="flow">
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">1</div><div class="flow-l"></div></div><div class="flow-c"><h4>slack.com 가입 → 워크스페이스 생성 (무료)</h4><p>이메일로 가입</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">2</div><div class="flow-l"></div></div><div class="flow-c"><h4>앱 → "Incoming Webhooks" 추가</h4><p>슬랙 앱 디렉토리에서 검색 → 설치 → 채널 선택</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">3</div><div class="flow-l"></div></div><div class="flow-c"><h4>Webhook URL 복사 → config에 저장</h4><p>이 URL로 메시지 보내면 슬랙에 알림</p></div></div>
+  <div class="flow-s"><div class="flow-m"><div class="flow-d">4</div></div><div class="flow-c"><h4>AI에게 slack.php 만들어달라 하기</h4><p>아래 프롬프트 사용</p></div></div>
+</div>
+<div class="box tip"><div class="box-t">슬랙은 기획서에 포함됩니다</div><p>CH17에서 .md 기획서를 만들 때 슬랙 알림 규칙도 같이 넣으면, 코드 생성 시 <strong>slack.php가 자동으로 만들어집니다.</strong> 이미 코드에 포함되어 있다면 Webhook URL만 config에 넣으면 됩니다.</p></div>
+<div class="prompt"><div class="prompt-h">🤖 기획서에 슬랙 규칙 추가 안 했다면</div>
+<div class="prompt-b">"PHP로 슬랙 알림 보내는 함수 만들어줘.
+함수: sendSlack($message, $type)
+$type: 'success'✅, 'error'🚨, 'info'📋
+Webhook URL은 config에서 가져오기.
+다른 PHP 파일에서 require_once로 쓸 수 있게."</div></div></div>
 <div class="box tip"><div class="box-t">환경마다 다릅니다</div><p>서버 환경, 설정, 데이터에 따라 결과가 다를 수 있습니다. 에러가 나거나 예상과 다르면 <strong>AI에게 상황을 설명하고 함께 해결</strong>해 나가세요. 그 과정 자체가 실력이 됩니다.</p></div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(20)">← SEO</button><button class="ch-btn" onclick="go(22)">다음: 글 꾸미기 →</button></div>
 </div>
@@ -1552,7 +1614,7 @@ Open Graph 태그 자동 생성 코드 만들어줘.
   <div class="ni"><div class="nb">3</div><div class="nt">CSS 코드 <strong>붙여넣기</strong></div></div>
   <div class="ni"><div class="nb">4</div><div class="nt"><strong>"공개"</strong>. 끝!</div></div>
 </div></div>
-<div class="ch-nav"><button class="ch-btn" onclick="go(21)">← 크론탭</button><button class="ch-btn" onclick="go(23)">다음: 유지보수·비용 →</button></div>
+<div class="ch-nav"><button class="ch-btn" onclick="go(21)">← 크론탭·슬랙</button><button class="ch-btn" onclick="go(23)">다음: 유지보수·비용 →</button></div>
 </div>
 
 
