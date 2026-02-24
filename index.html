@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#000;--card:#111;--card2:#181818;--gold:#c9a84c;--gold-l:#e2c97e;--gold-d:#8a6d2b;--txt:#e5e5e5;--txt2:#bbb;--txt3:#777;--border:#222;--font:'Noto Sans KR',sans-serif;--mono:'JetBrains Mono',monospace}
+:root{--bg:#000;--card:#111;--card2:#181818;--gold:#c9a84c;--gold-l:#e2c97e;--gold-d:#8a6d2b;--txt:#e5e5e5;--txt2:#bbb;--txt3:#777;--dim:#666;--border:#222;--font:'Noto Sans KR',sans-serif;--mono:'JetBrains Mono',monospace}
 body{font-family:var(--font);background:var(--bg);color:var(--txt);line-height:1.9;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--gold-d);color:#fff}
 .cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;position:relative}
@@ -276,9 +276,13 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
   <div class="gcard"><h4>🏨 호텔/숙소 추천</h4><p>"서울 강남 호텔 TOP 10" → Agoda, Booking 크롤링 + 제휴 링크</p></div>
   <div class="gcard"><h4>🗺 여행 액티비티</h4><p>"제주도 투어 추천" → Klook 크롤링 + 제휴 링크</p></div>
   <div class="gcard"><h4>📚 도서 추천</h4><p>"2025 자기계발서 TOP 10" → 도서 사이트 크롤링 + 링크프라이스 제휴</p></div>
-  <div class="gcard"><h4>🏢 내 업체 홍보</h4><p>자기 사업 관련 글 자동화 → 홈페이지/예약 유입</p></div>
+  <div class="gcard"><h4>🛒 쿠팡 어필리에이트</h4><p>상품 크롤링 + 쿠팡 파트너스 제휴 링크</p></div>
+  <div class="gcard"><h4>📱 네이버 브랜드커넥트</h4><p>체험단/협찬 콘텐츠 자동화</p></div>
 </div>
-<div class="box tip"><div class="box-t">수익 모델 팁</div><p>애드센스보다 <strong>어필리에이트(제휴 마케팅)</strong>가 수익이 높습니다. <strong>링크프라이스</strong>(linkprice.com)에 가입하면 다양한 광고주(Agoda, Klook 등)의 제휴 링크를 바로 쓸 수 있습니다. 어필리에이트·인플루언서 마케팅이 뭔지 모르겠으면 AI에게 "링크프라이스 제휴 마케팅이 뭐야? 어떻게 시작해?"라고 물어보세요. 이 가이드는 수익 강의가 아니라 기술 가이드이니 이 정도만 참고하세요.</p></div></div>
+<div class="box tip"><div class="box-t">수익 모델 팁</div><p>애드센스보다 <strong>어필리에이트(제휴 마케팅)</strong>가 수익이 높습니다. 제휴 마케팅은 두 가지 방식이 있습니다:</p>
+<p><strong>① 직접 가입 (기본)</strong> — 쿠팡 파트너스, 네이버 브랜드커넥트, Agoda, Amazon 등에 직접 가입하고 승인받는 방식. 커미션이 더 높습니다.</p>
+<p><strong>② 링크프라이스 경유</strong> — linkprice.com에 가입하면 다양한 광고주(Agoda, Klook 등)의 제휴 링크를 바로 쓸 수 있습니다. 개별 승인 없이 편하지만, 직접 가입보다 커미션이 낮습니다.</p>
+<p>어필리에이트가 뭔지 모르겠으면 AI에게 "제휴 마케팅이 뭐야? 어떻게 시작해?"라고 물어보세요. 이 가이드는 수익 강의가 아니라 기술 가이드이니 이 정도만 참고하세요.</p></div></div>
 <div class="s"><h3>🧩 바이브코딩이란</h3>
 <p>코드를 직접 짜지 않고, AI에게 원하는 걸 설명해서 코드를 만들게 하는 방식입니다. 핵심은 <strong>"무엇을 만들어야 하는지"</strong>를 아는 것.</p>
 <div class="grid">
@@ -305,7 +309,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
   <tr><td>AWS EC2</td><td>24시간 서버</td><td>6개월 프리티어 무료</td></tr>
   <tr><td>도메인</td><td>사이트 주소</td><td>연 ~$9 (Namecheap)</td></tr>
   <tr><td>Cloudflare</td><td>SSL + CDN</td><td>무료</td></tr>
-  <tr><td>Gemini API</td><td>AI 글 생성</td><td>무료 티어</td></tr>
+  <tr><td>Gemini API</td><td>AI 글 생성</td><td>무료 크레딧 $300 (카드 등록)</td></tr>
   <tr><td>Slack</td><td>알림</td><td>무료</td></tr>
   <tr><td>Xshell</td><td>서버 접속</td><td>무료 (개인)</td></tr>
   <tr><td>FileZilla</td><td>파일 업로드</td><td>무료</td></tr>
@@ -313,15 +317,47 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
   <tr><td>Node.js</td><td>크롤러 & 이미지 처리</td><td>무료</td></tr>
 </tbody></table>
 <div class="box tip"><div class="box-t">프리티어 이후</div><p>프리티어 이후에도 t3.micro를 계속 쓸 수 있습니다. 월 ~$8 정도. 트래픽이 늘어서 느려지면 그때 t3.small 등으로 업그레이드하면 됩니다. 전체 월 유지비 약 $10~20.</p></div></div>
+
+<div class="s"><h3>📖 용어 설명집</h3>
+<p>이 가이드에서 자주 등장하는 용어들입니다. 지금 외울 필요 없고, 모르는 단어가 나올 때 돌아와서 확인하세요.</p>
+<table class="tbl"><thead><tr><th>용어</th><th>쉽게 말하면</th></tr></thead><tbody>
+  <tr><td><strong>AWS EC2</strong></td><td>아마존에서 빌리는 클라우드 컴퓨터. 우리 서버가 여기서 돌아감</td></tr>
+  <tr><td><strong>SSH</strong></td><td>내 PC에서 서버에 원격 접속하는 방법 (전화 걸기 같은 것)</td></tr>
+  <tr><td><strong>SFTP</strong></td><td>서버에 파일을 올리고 내리는 보안 전송 방식</td></tr>
+  <tr><td><strong>Apache</strong></td><td>웹서버. 누군가 사이트에 접속하면 페이지를 보여주는 역할</td></tr>
+  <tr><td><strong>MySQL</strong></td><td>데이터베이스. 글, 호텔 정보, 이미지 파일명 등 모든 데이터의 창고</td></tr>
+  <tr><td><strong>PHP</strong></td><td>워드프레스가 이 언어로 만들어져 있음. 자동 발행 코드도 PHP로 작성</td></tr>
+  <tr><td><strong>Node.js</strong></td><td>JavaScript를 서버에서 실행하는 프로그램. 크롤링 코드가 여기서 돌아감</td></tr>
+  <tr><td><strong>API</strong></td><td>프로그램끼리 대화하는 통로. "데이터 주세요" → "여기요" 하는 약속된 방식</td></tr>
+  <tr><td><strong>API 키</strong></td><td>API를 쓸 때 필요한 출입증. 이게 있어야 Gemini가 글을 써줌</td></tr>
+  <tr><td><strong>DNS</strong></td><td>도메인(myblog.com)과 IP 주소(123.456.789)를 연결해주는 전화번호부</td></tr>
+  <tr><td><strong>SSL / HTTPS</strong></td><td>사이트 보안 인증서. 주소창에 🔒 자물쇠가 뜨게 해줌</td></tr>
+  <tr><td><strong>Cloudflare</strong></td><td>무료 DNS + SSL + 속도 최적화를 제공하는 서비스</td></tr>
+  <tr><td><strong>Puppeteer</strong></td><td>눈에 안 보이는 크롬 브라우저를 코드로 자동 조종하는 도구 (크롤링용)</td></tr>
+  <tr><td><strong>크롤링</strong></td><td>다른 사이트에서 데이터를 자동으로 긁어오는 것</td></tr>
+  <tr><td><strong>DB (데이터베이스)</strong></td><td>큰 엑셀이라고 생각하면 됨. 테이블 = 시트, 컬럼 = 열, 행 = 데이터 1줄</td></tr>
+  <tr><td><strong>크론탭 (Crontab)</strong></td><td>서버의 알람 시계. "매일 몇 시에 이 파일 실행해" 예약하는 기능</td></tr>
+  <tr><td><strong>Webhook</strong></td><td>이벤트가 생기면 자동으로 알림을 보내는 URL (슬랙 알림에 사용)</td></tr>
+  <tr><td><strong>SEO</strong></td><td>검색엔진 최적화. 구글/네이버 검색 결과에 내 글이 잘 나오게 하는 것</td></tr>
+  <tr><td><strong>사이트맵</strong></td><td>내 사이트에 어떤 글이 있는지 검색엔진에 알려주는 목차 파일</td></tr>
+  <tr><td><strong>robots.txt</strong></td><td>검색엔진에게 "이건 수집해, 이건 하지 마" 알려주는 규칙 파일</td></tr>
+  <tr><td><strong>OG태그</strong></td><td>SNS에 링크 공유할 때 제목/이미지가 예쁘게 나오게 하는 태그</td></tr>
+  <tr><td><strong>스키마 (Schema)</strong></td><td>검색 결과에 FAQ, 별점 등이 특별하게 표시되게 하는 구조화 데이터</td></tr>
+  <tr><td><strong>RankMath</strong></td><td>워드프레스 SEO 플러그인. 설치하면 기본 SEO가 자동 적용됨</td></tr>
+  <tr><td><strong>WebP</strong></td><td>이미지 포맷. JPEG보다 용량이 작아서 사이트가 빨라짐</td></tr>
+  <tr><td><strong>어필리에이트</strong></td><td>제휴 마케팅. 내 링크로 누군가 구매/예약하면 수수료를 받는 것</td></tr>
+</tbody></table>
+</div>
+
 <div class="ch-nav"><button class="ch-btn off">← 이전</button><button class="ch-btn" onclick="go(1)">다음: 서버 생성 →</button></div>
 </div>
 
 
 <div class="ch" data-ch="1">
-<div class="ch-head"><div class="ch-num">Chapter 01</div><h2>AWS EC2 서버 생성</h2><p class="ch-desc">키페어 발급부터 보안 그룹까지, 서버 만들기 전 과정.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 01</div><h2>AWS 서버 생성</h2><p class="ch-desc">블로그가 돌아갈 서버를 만듭니다. 키페어 발급부터 보안 그룹까지.</p></div>
 <div class="ch-summary">💬 AWS에서 컴퓨터 한 대 빌리는 겁니다.</div>
 <div class="s"><h3>☁️ 왜 AWS인가</h3>
-<p>자동화는 24시간 돌아가야 합니다. AWS EC2는 클라우드에 있는 리눅스 컴퓨터를 빌리는 겁니다. 새벽 3시에도 작업을 수행합니다.</p>
+<p>자동화는 24시간 돌아가야 합니다. AWS EC2는 클라우드에 있는 리눅스 컴퓨터를 빌리는 겁니다. 내가 자는 동안에도 서버는 계속 돌아갑니다.</p>
 <div class="box tip"><div class="box-t">프리티어</div><p>AWS 신규 가입 시 <strong>6개월간 프리티어</strong>. t3.micro 무료. 가입에 신용카드가 필요하지만 프리티어 안에서는 과금 없습니다.</p></div></div>
 <div class="s"><h3>📋 생성 순서 (키페어 포함!)</h3>
 <div class="flow">
@@ -343,7 +379,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 <div class="nl">
   <div class="ni"><div class="nb">1</div><div class="nt">EC2 좌측 → <strong>"탄력적 IP"</strong></div></div>
   <div class="ni"><div class="nb">2</div><div class="nt"><strong>"탄력적 IP 주소 할당"</strong> → 할당</div></div>
-  <div class="ni"><div class="nb">3</div><div class="nt">IP 선택 → <strong>"연결"</strong> → 내 인스턴스 선택</div></div>
+  <div class="ni"><div class="nb">3</div><div class="nt">IP 선택 → <strong>"탄력적 IP 주소 연결"</strong> → 내 인스턴스 선택</div></div>
 </div>
 <div class="box warn"><div class="box-t">주의</div><p>탄력적 IP를 인스턴스에 연결 안 하면 요금 발생. 반드시 연결!</p></div></div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(0)">← 시작하며</button><button class="ch-btn" onclick="go(2)">다음: Xshell 접속 →</button></div>
@@ -351,7 +387,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 
 
 <div class="ch" data-ch="2">
-<div class="ch-head"><div class="ch-num">Chapter 02</div><h2>Xshell로 서버 접속</h2><p class="ch-desc">내 컴퓨터에서 서버를 원격 조종합니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 02</div><h2>서버에 접속하기 — SSH 프로그램 설치</h2><p class="ch-desc">내 컴퓨터에서 서버를 원격 조종합니다.</p></div>
 <div class="ch-summary">💬 내 PC에서 서버를 원격 조종하는 프로그램을 깝니다.</div>
 <div class="s"><h3>🔐 SSH = 서버에 전화 걸기</h3>
 <p>내 컴퓨터에서 서버에 원격으로 접속하는 방법입니다. 카카오톡으로 전화 거는 것처럼, SSH 프로그램으로 서버에 연결합니다. 아까 만든 .pem 파일이 전화번호이자 비밀번호 역할입니다.</p></div>
@@ -413,7 +449,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 
 
 <div class="ch" data-ch="3">
-<div class="ch-head"><div class="ch-num">Chapter 03</div><h2>FileZilla로 파일 올리기</h2><p class="ch-desc">드래그 앤 드롭으로 파일을 서버에 올립니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 03</div><h2>서버에 파일 올리기 — FileZilla 설치</h2><p class="ch-desc">드래그 앤 드롭으로 파일을 서버에 올립니다.</p></div>
 <div class="ch-summary">💬 파일을 드래그해서 서버에 올리는 프로그램을 깝니다.</div>
 <div class="s"><h3>📁 Xshell = 명령어 / FileZilla = 파일 관리</h3>
 <p>Xshell은 글자로 서버에 명령을 내리는 거고 (예: "이거 설치해"), FileZilla는 윈도우 탐색기처럼 파일을 눈으로 보면서 드래그로 올리고 내리는 겁니다. 왼쪽이 내 PC, 오른쪽이 서버.</p></div>
@@ -430,7 +466,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 
 
 <div class="ch" data-ch="4">
-<div class="ch-head"><div class="ch-num">Chapter 04</div><h2>AMP 설치 (Apache + MySQL + PHP)</h2><p class="ch-desc">워드프레스가 돌아가려면 이 3개가 먼저 깔려 있어야 합니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 04</div><h2>워드프레스 엔진 깔기 — AMP 설치</h2><p class="ch-desc">워드프레스가 돌아가려면 이 3개가 먼저 깔려 있어야 합니다.</p></div>
 <div class="ch-summary">💬 워드프레스가 돌아가려면 필요한 3가지를 설치합니다.</div>
 <div class="s"><h3>📦 쉽게 말하면</h3>
 <p>워드프레스는 혼자 못 돌아갑니다. 3가지 도우미가 필요합니다:</p>
@@ -451,6 +487,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 <span class="out">→ "active (running)" 보이면 OK</span></div></div></div>
 
 <div class="s"><h3>2단계: MySQL 설치 & 데이터베이스 생성</h3>
+<div class="box danger"><div class="box-t">한 줄씩 붙여넣기</div><p>아래 명령어를 <strong>반드시 한 줄씩</strong> 복사 → 붙여넣기 → Enter 하세요. 여러 줄을 한꺼번에 붙여넣으면 에러납니다.</p></div>
 <div class="term"><div class="term-h"><div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div><span class="term-tt">Xshell</span></div>
 <div class="term-b"><span class="c"># MySQL 설치</span>
 <span class="cmd">sudo apt install mysql-server -y</span>
@@ -468,6 +505,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 <span class="cmd">GRANT ALL PRIVILEGES ON wordpress.* TO 'wpuser'@'localhost';</span>
 <span class="cmd">FLUSH PRIVILEGES;</span>
 <span class="cmd">EXIT;</span></div></div>
+<div class="box warn"><div class="box-t">비밀번호 규칙</div><p><strong>'여기에비밀번호'</strong> 부분을 자기가 정한 비밀번호로 바꾸세요. <strong>8자 이상, 영문+숫자 조합</strong>을 추천합니다. 예: <code>MyBlog2025!</code> — 특수문자를 넣으면 더 안전합니다. 작은따옴표 안에 넣는 거니까 따옴표는 그대로 두세요.</p></div>
 <div class="box warn"><div class="box-t">메모하세요!</div><p>DB 이름: <strong>wordpress</strong> / 사용자: <strong>wpuser</strong> / 비밀번호: <strong>내가 정한 것</strong> — 이 3개를 나중에 워드프레스 설치할 때 입력해야 합니다.</p></div></div>
 
 <div class="s"><h3>3단계: PHP 설치</h3>
@@ -505,7 +543,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 
 
 <div class="ch" data-ch="5">
-<div class="ch-head"><div class="ch-num">Chapter 05</div><h2>워드프레스 설치</h2><p class="ch-desc">블로그 엔진을 설치합니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 05</div><h2>블로그 설치 & 테마 설정</h2><p class="ch-desc">워드프레스를 설치하고 테마를 입힙니다.</p></div>
 <div class="ch-summary">💬 블로그 엔진을 설치합니다. 클릭 몇 번이면 끝.</div>
 
 <div class="s"><h3>⚠️ 설치 전에 알아야 할 것</h3>
@@ -590,7 +628,7 @@ if(sessionStorage.getItem('eb_auth')==='1'){document.getElementById('login-wall'
 
 
 <div class="ch" data-ch="6">
-<div class="ch-head"><div class="ch-num">Chapter 06</div><h2>도메인 구매 & Cloudflare SSL</h2><p class="ch-desc">사이트 주소 연결 + HTTPS 적용. 서버 인증서도 설치합니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 06</div><h2>사이트 주소 연결 & 보안 설정</h2><p class="ch-desc">도메인 구매 + Cloudflare SSL로 HTTPS 적용.</p></div>
 <div class="ch-summary">💬 사이트 주소를 사고 https를 붙입니다.</div>
 <div class="s"><h3>🌐 도메인 구매</h3>
 <p>도메인은 사이트 주소입니다. 예: <strong>myblog.com</strong>. 이걸 사야 사람들이 IP 주소 대신 이름으로 접속할 수 있습니다.</p>
@@ -643,7 +681,7 @@ wp-config.php에 넣어야 할 HTTPS 강제 설정과
 
 
 <div class="ch" data-ch="7">
-<div class="ch-head"><div class="ch-num">Chapter 07</div><h2>서버에 Node.js 설치</h2><p class="ch-desc">서버에도 Node.js를 깔아둡니다. 코드는 나중에 만들고 올립니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 07</div><h2>크롤링 준비 — Node.js 설치</h2><p class="ch-desc">데이터 수집 코드가 돌아가려면 Node.js가 필요합니다.</p></div>
 <div class="ch-summary">💬 크롤링 코드가 돌아가려면 Node.js가 필요합니다.</div>
 <div class="s"><h3>⚙️ 서버에 Node.js 설치</h3>
 <p>Node.js는 크롤링 코드와 이미지 처리 코드를 실행하는 프로그램입니다. 워드프레스(PHP)와는 별개로, 데이터 수집 쪽을 담당합니다. Xshell로 서버에 접속한 상태에서 진행합니다.</p>
@@ -654,6 +692,11 @@ wp-config.php에 넣어야 할 HTTPS 강제 설정과
 <span class="out">v20.x.x 보이면 OK</span></div></div></div>
 
 <div class="box tip"><div class="box-t">아직 코드는 없어도 됩니다</div><p>지금은 Node.js 설치만 해두면 됩니다. 실제 코드는 기획이 끝난 뒤 AI에게 만들어달라고 시킬 겁니다. 코드를 서버에 올리고 실행하는 방법은 이후 챕터에서 다룹니다.</p></div>
+
+<div class="box" style="border:1px solid var(--gold-d);background:rgba(201,168,76,.04)"><div class="box-t" style="color:var(--gold)">📍 여기까지 완료한 것</div>
+<p>✅ AWS 서버 생성 → SSH 접속 → 파일 전송 도구 → AMP 설치 → 워드프레스 설치 → 도메인·SSL → Node.js</p>
+<p><strong>서버 환경이 완성되었습니다.</strong> 다음부터는 AI와 대화하며 "뭘 자동화할지" 기획하는 단계입니다. 여기가 가장 중요합니다.</p>
+</div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(6)">← 도메인·SSL</button><button class="ch-btn" onclick="go(8)">다음: 자동화 기획 →</button></div>
 </div>
 
@@ -668,7 +711,8 @@ wp-config.php에 넣어야 할 HTTPS 강제 설정과
   <div class="gcard"><h4>🏨 숙소/호텔 추천</h4><p>Agoda, Booking 크롤링 + 제휴</p></div>
   <div class="gcard"><h4>🗺 여행 액티비티</h4><p>Klook 크롤링 + 제휴</p></div>
   <div class="gcard"><h4>📚 도서 추천</h4><p>도서 사이트 크롤링 + 링크프라이스 제휴</p></div>
-  <div class="gcard"><h4>🏢 내 업체 홍보</h4><p>자기 사업 유입용</p></div>
+  <div class="gcard"><h4>🛒 쿠팡 어필리에이트</h4><p>상품 크롤링 + 쿠팡 파트너스 제휴 링크</p></div>
+  <div class="gcard"><h4>📱 네이버 브랜드커넥트</h4><p>체험단/협찬 콘텐츠 자동화</p></div>
 </div></div>
 
 <div class="s"><h3>🤔 데이터를 어디서 가져올 것인가</h3>
@@ -707,7 +751,7 @@ wp-config.php에 넣어야 할 HTTPS 강제 설정과
 
 
 <div class="ch" data-ch="9">
-<div class="ch-head"><div class="ch-num">Chapter 09</div><h2>글 구조 & 템플릿 설계</h2><p class="ch-desc">데이터가 들어갈 자리와, AI가 채울 자리를 구분합니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 09</div><h2>자동 발행할 글의 뼈대 만들기</h2><p class="ch-desc">데이터가 들어갈 자리와, AI가 채울 자리를 구분합니다.</p></div>
 <div class="ch-summary">💬 글 한 편의 뼈대를 정합니다. DB가 채울 자리, AI가 채울 자리.</div>
 <div class="s"><h3>🧱 글 = 두 가지 재료</h3>
 <div class="grid">
@@ -762,13 +806,28 @@ wp-config.php에 넣어야 할 HTTPS 강제 설정과
 장단점도 알려줘."</div></div>
 <div class="box tip"><div class="box-t">위는 예시입니다</div><p>자기 블로그 주제에 맞게 바꾸세요. 구조를 잘 모르겠으면 <strong>두 번째 예시처럼 AI에게 제안을 맡기는 게 편합니다.</strong> Claude가 주제에 맞는 구조를 여러 개 추천해줍니다.</p></div>
 <div class="box tip"><div class="box-t">템플릿은 여러 개 만들 수 있습니다</div><p>템플릿을 2~3개 만들어서 <strong>랜덤으로 발행</strong>하면 글마다 다른 느낌이 납니다. 서론 유형, 카드 레이아웃, FAQ 스타일 등을 다양하게 만들어두고 autopost.php에서 랜덤 선택하게 하면 됩니다. 기획할 때 Claude에게 <strong>"템플릿을 2~3가지 버전으로 만들고, 발행할 때 랜덤으로 하나 골라 쓰게 하고 싶어"</strong>라고 말해두세요. 나중에 .md 기획서에 이 내용이 들어갑니다.</p></div></div>
+
+<div class="s"><h3>🔗 제휴 마케팅을 하는 경우 — 제휴 링크란?</h3>
+<p>어필리에이트(제휴 마케팅)로 수익을 내려면, 글에 들어가는 링크가 <strong>일반 링크가 아니라 "내 고유번호가 담긴 제휴 링크"</strong>여야 합니다. 이 링크를 통해 예약이나 구매가 일어나야 수수료가 잡힙니다.</p>
+
+<div class="grid">
+  <div class="gcard"><h4>직접 제휴</h4><p>광고주(Agoda, Klook 등)에서 직접 어필리에이트 승인을 받는 방식. URL에 내 고유번호가 붙어서 정상적인 상품 URL 형태가 됩니다</p></div>
+  <div class="gcard"><h4>링크프라이스 경유</h4><p>linkprice.com을 통해 제휴하는 방식. URL 구조가 다릅니다:<br><code style="font-size:.75rem">click.linkprice.com/click.php?m=agoda&a=내번호&l=0000</code></p></div>
+</div>
+<p>어떤 방식이든 <strong>DB에 제휴 링크(또는 링크를 조립할 고유번호)를 저장</strong>해두고, autopost.php에서 글을 만들 때 자동으로 끼워넣는 구조입니다. 기획할 때 Claude에게 "제휴 링크를 글에 자동으로 넣고 싶어"라고 말해두세요.</p>
+
+<div class="box warn"><div class="box-t">딥링크 참고</div><p>광고주에 따라 <strong>딥링크</strong>(특정 상품 페이지로 바로 연결되는 링크)를 지원합니다. 예를 들어 아고다는 호텔 고유 ID(hid)를 URL에 넣으면 해당 호텔 페이지로 바로 랜딩됩니다. 딥링크 구조는 광고주마다 다르니, 가입 후 제공되는 가이드를 확인하거나 AI에게 물어보세요.</p></div>
+
+<div class="box tip"><div class="box-t">제휴 마케팅 안 하시는 분은</div><p>이 부분은 건너뛰세요. 애드센스만 쓰거나 수익화 없이 블로그를 운영하는 경우에는 해당 없습니다.</p></div>
+</div>
+
 <div class="box tip"><div class="box-t">환경마다 다릅니다</div><p>서버 환경, 설정, 데이터에 따라 결과가 다를 수 있습니다. 에러가 나거나 예상과 다르면 <strong>AI에게 상황을 설명하고 함께 해결</strong>해 나가세요. 그 과정 자체가 실력이 됩니다.</p></div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(8)">← 자동화 기획</button><button class="ch-btn" onclick="go(10)">다음: DB 설계 →</button></div>
 </div>
 
 
 <div class="ch" data-ch="10">
-<div class="ch-head"><div class="ch-num">Chapter 10</div><h2>AI와 같이 DB 설계</h2><p class="ch-desc">데이터를 담을 그릇을 만듭니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 10</div><h2>데이터 저장소 설계 — DB 테이블</h2><p class="ch-desc">데이터를 담을 그릇을 만듭니다.</p></div>
 <div class="ch-summary">💬 데이터를 담을 그릇(테이블)의 구조를 정합니다.</div>
 <div class="s"><h3>🗄 DB = 큰 엑셀</h3>
 <p><strong>테이블 = 시트(탭)</strong>, <strong>컬럼 = 열</strong>, <strong>행 = 데이터 1줄</strong>. 템플릿에서 정한 항목이 곧 DB 열이 됩니다.</p></div>
@@ -854,7 +913,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 
 
 <div class="ch" data-ch="11">
-<div class="ch-head"><div class="ch-num">Chapter 11</div><h2>파일 구조 & config 보안</h2><p class="ch-desc">시스템 파일 구성과 비밀번호 보호.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 11</div><h2>시스템 파일 정리 & 보안 설정</h2><p class="ch-desc">파일 구조를 정하고 비밀번호를 보호합니다.</p></div>
 <div class="ch-summary">💬 파일이 몇 개 필요하고 어디에 두는지 정합니다.</div>
 <div class="s"><h3>📁 파일 구성</h3>
 <p>파일은 크게 2곳에 나뉩니다. <strong>/var/www/html/</strong>은 워드프레스가 설치된 폴더(=WP 폴더)이고, <strong>~/crawler/</strong>는 크롤링 스크립트가 있는 폴더입니다. 폴더명은 예시이니 자기 프로젝트에 맞게 바꿔도 됩니다.</p>
@@ -865,6 +924,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
   <tr><td><code>image.js</code></td><td>이미지 크롤링 & 최적화</td><td>크롤러 폴더</td></tr>
   <tr><td><code>config.js</code></td><td>설정 (DB비번, API키 등)</td><td>크롤러 폴더</td></tr>
   <tr><td><code>slack.php</code></td><td>슬랙 알림</td><td>WP 폴더</td></tr>
+  <tr><td><code>recovery.php</code></td><td>에러 자동 복구</td><td>WP 폴더</td></tr>
   <tr><td><code>package.json</code></td><td>Node.js 패키지 목록</td><td>크롤러 폴더</td></tr>
 </tbody></table></div>
 
@@ -894,7 +954,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 
 
 <div class="ch" data-ch="12">
-<div class="ch-head"><div class="ch-num">Chapter 12</div><h2>Gemini API 키 발급</h2><p class="ch-desc">AI가 글을 쓸 수 있게 API 키를 받습니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 12</div><h2>AI 글 작성 준비 — Gemini API 발급</h2><p class="ch-desc">AI가 글을 쓸 수 있게 API 키를 받습니다.</p></div>
 <div class="ch-summary">💬 AI가 글을 쓸 수 있게 API 키를 발급받습니다.</div>
 <div class="s"><h3>📋 발급 방법</h3>
 <div class="flow">
@@ -902,13 +962,19 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
   <div class="flow-s"><div class="flow-m"><div class="flow-d">2</div><div class="flow-l"></div></div><div class="flow-c"><h4>"Get API key" → "Create API key"</h4><p>API 키는 "출입증" 같은 겁니다. 이 키가 있어야 우리 코드가 Gemini에게 글을 시킬 수 있습니다</p></div></div>
   <div class="flow-s"><div class="flow-m"><div class="flow-d">3</div></div><div class="flow-c"><h4>키 복사 → config 파일에 저장</h4><p>절대 공개하지 말 것! GitHub에 올리지 말 것!</p></div></div>
 </div>
-<div class="box tip"><div class="box-t">무료 티어 + 모델 추천</div><p>Gemini 무료 티어로 자동 포스팅 수준은 충분합니다. 모델은 <strong>Gemini 2.5 이상</strong>을 추천합니다. 키 발급 시 모델 선택이 가능한데, AI에게 "Gemini API에서 2.5 이상 모델 쓰는 코드 알려줘"라고 하면 됩니다.</p></div></div>
+<div class="box danger"><div class="box-t">⭐ 무료 크레딧 발급 (카드 등록)</div>
+<p>API 키만 발급받고 바로 쓰면 <strong>"할당량 초과"</strong> 에러가 납니다. 무료 티어만으로는 자동 포스팅에 필요한 호출량이 부족합니다.</p>
+<p><strong>Google Cloud Console에서 카드를 등록하면 무료 크레딧($300)을 받을 수 있습니다.</strong> 자동 포스팅 수준이면 무료 크레딧으로 꽤 오래 쓸 수 있습니다. 무료 크레딧을 다 쓰면 그때부터는 사용한 만큼 과금됩니다. 단, 사용할 때만 요금이 나가고 사용 안 하면 안 나갑니다.</p>
+<p><a href="https://www.youtube.com/watch?v=RkplcL9b324" target="_blank" style="color:var(--gold);text-decoration:underline">📺 무료 크레딧 발급 방법 영상 보기 →</a></p>
+<p>이 영상대로 따라하면 카드 등록 + 무료 크레딧 발급이 끝납니다.</p>
+</div>
+<div class="box tip"><div class="box-t">모델 추천</div><p>모델은 <strong>Gemini 2.5 이상</strong>을 추천합니다. AI에게 "Gemini API에서 2.5 이상 모델 쓰는 코드 알려줘"라고 하면 됩니다.</p></div></div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(11)">← 파일·보안</button><button class="ch-btn" onclick="go(13)">다음: Puppeteer →</button></div>
 </div>
 
 
 <div class="ch" data-ch="13">
-<div class="ch-head"><div class="ch-num">Chapter 13</div><h2>Puppeteer 소개 & 요소 찾기</h2><p class="ch-desc">브라우저를 자동 조종합니다. 그리고 "어디를 긁을지" AI에게 알려주는 법.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 13</div><h2>크롤링할 데이터 위치 찾기</h2><p class="ch-desc">브라우저를 자동 조종합니다. 그리고 "어디를 긁을지" AI에게 알려주는 법.</p></div>
 <div class="ch-summary">💬 어떤 사이트에서 어떤 부분을 긁을지 확인합니다.</div>
 <div class="s"><h3>🕷 쉽게 말하면</h3>
 <p>사람이 브라우저에서 하는 모든 행동(접속, 스크롤, 클릭, 복사)을 <strong>코드가 자동으로</strong> 수행합니다. 여러분이 매일 사이트에 들어가서 데이터를 하나하나 복사하는 대신, 코드가 대신 해줍니다. 눈에 안 보이는 크롬을 서버에서 돌리는 겁니다.</p>
@@ -985,7 +1051,7 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 
 
 <div class="ch" data-ch="14">
-<div class="ch-head"><div class="ch-num">Chapter 14</div><h2>데이터 확보</h2><p class="ch-desc">글의 재료를 준비합니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 14</div><h2>데이터 수집 규칙 정하기</h2><p class="ch-desc">글의 재료를 어떻게 가져올지 정합니다.</p></div>
 <div class="ch-summary">💬 글의 재료(데이터)를 어떻게 가져올지 정합니다.</div>
 <div class="s"><div class="br" id="br-d2"><div class="br-tabs">
   <div class="br-tab active" data-br="cr">🕷 크롤링</div>
@@ -1049,7 +1115,7 @@ Gemini가 JSON 형태로 정리해서 돌려주면
 </div>
 
 <div class="ch" data-ch="15">
-<div class="ch-head"><div class="ch-num">Chapter 15</div><h2>이미지 확보 & 최적화</h2><p class="ch-desc">이미지도 자동으로 가져오고, DB 싱크까지 한 번에.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 15</div><h2>이미지 자동 수집 & 최적화</h2><p class="ch-desc">이미지도 자동으로 가져오고, DB 싱크까지 한 번에.</p></div>
 <div class="ch-summary">💬 이미지를 자동으로 가져오고 DB와 연결하는 규칙을 정합니다.</div>
 
 <div class="s"><h3>⭐ 이미지 싱크 — 이 챕터에서 가장 중요한 개념</h3>
@@ -1134,7 +1200,7 @@ Gemini가 JSON 형태로 정리해서 돌려주면
 
 
 <div class="ch" data-ch="16">
-<div class="ch-head"><div class="ch-num">Chapter 16</div><h2>AI 콘텐츠 생성</h2><p class="ch-desc">데이터를 사람이 읽는 글로 바꿉니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 16</div><h2>AI가 글 쓰는 규칙 정하기</h2><p class="ch-desc">데이터를 사람이 읽는 글로 바꿉니다.</p></div>
 <div class="ch-summary">💬 AI가 데이터를 보고 자연스러운 글을 쓰게 하는 규칙을 정합니다.</div>
 <div class="s"><h3>🧠 핵심: "상상해서 써" ❌ → "이 데이터 기반으로 써" ✅</h3>
 <p>실제 데이터(가격, 평점 등)를 프롬프트에 넣으면 AI가 거짓말(할루시네이션)을 훨씬 덜 합니다.</p>
@@ -1164,7 +1230,7 @@ Gemini가 JSON 형태로 정리해서 돌려주면
 
 
 <div class="ch" data-ch="17">
-<div class="ch-head"><div class="ch-num">Chapter 17</div><h2>워드프레스 자동 발행</h2><p class="ch-desc">글이 자동으로 올라가게. 중복 방지 + 에러 복구까지.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 17</div><h2>자동 발행 규칙 정하기 & 코드 생성</h2><p class="ch-desc">글이 자동으로 올라가게. 중복 방지 + 에러 복구까지.</p></div>
 <div class="ch-summary">💬 자동 발행 규칙을 정하고, 기획서를 완성하고, 코드를 만듭니다.</div>
 
 <div class="s"><h3>🚀 자동 발행이 하는 일 (쉽게 말하면)</h3>
@@ -1280,6 +1346,10 @@ Gemini가 JSON 형태로 정리해서 돌려주면
 <div class="box tip"><div class="box-t">🎉 기획 완료 → 코드 생성!</div><p>여기까지가 기획 단계입니다. AI가 만들어준 코드를 받았으면, 다음 챕터부터는 <strong>코드를 서버에 올리고, 설정하고, 테스트하고, 자동화하는 단계</strong>입니다.</p></div></div>
 
 
+<div class="box" style="border:1px solid var(--gold-d);background:rgba(201,168,76,.04)"><div class="box-t" style="color:var(--gold)">📍 여기까지 완료한 것</div>
+<p>✅ 서버 환경 구축 (CH01~07) → AI와 기획 (CH08~17) → .md 기획서 완성 → 코드 생성 완료</p>
+<p><strong>기획과 코드가 모두 준비되었습니다.</strong> 다음부터는 코드를 서버에 올리고 실제로 돌려보는 단계입니다. 에러가 나면 AI에게 보여주고 고치면 됩니다.</p>
+</div>
 <div class="box tip"><div class="box-t">환경마다 다릅니다</div><p>서버 환경, 설정, 데이터에 따라 결과가 다를 수 있습니다. 에러가 나거나 예상과 다르면 <strong>AI에게 상황을 설명하고 함께 해결</strong>해 나가세요. 그 과정 자체가 실력이 됩니다.</p></div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(16)">← AI 콘텐츠</button><button class="ch-btn" onclick="go(18)">다음: 배포·설정 →</button></div>
 </div>
@@ -1287,7 +1357,7 @@ Gemini가 JSON 형태로 정리해서 돌려주면
 
 
 <div class="ch" data-ch="18">
-<div class="ch-head"><div class="ch-num">Chapter 18</div><h2>서버 배포 & 설정</h2><p class="ch-desc">코드를 서버에 올리고, DB와 설정 파일을 세팅합니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 18</div><h2>코드를 서버에 올리고 실행하기</h2><p class="ch-desc">코드를 서버에 올리고, DB와 설정 파일을 세팅합니다.</p></div>
 <div class="ch-summary">💬 코드를 서버에 올리고 DB, 설정 파일을 세팅합니다.</div>
 
 <div class="s"><h3>🎯 이 챕터에서 할 일</h3>
@@ -1368,7 +1438,7 @@ Gemini가 JSON 형태로 정리해서 돌려주면
 </div>
 
 <div class="ch" data-ch="19">
-<div class="ch-head"><div class="ch-num">Chapter 19</div><h2>테스트 & 디버깅</h2><p class="ch-desc">자동화 전에 직접 돌려봅니다. 1건은 너무 적습니다.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 19</div><h2>돌려보고 고치기 — 테스트</h2><p class="ch-desc">자동화 전에 직접 돌려봅니다. 1건은 너무 적습니다.</p></div>
 <div class="ch-summary">💬 진짜 돌려보고 에러를 잡습니다. 이 과정이 실력이 가장 많이 느는 단계입니다.</div>
 <div class="s"><h3>📋 테스트 순서</h3>
 <p>여기까지 오셨다면 거의 다 왔습니다! 1건만 테스트하면 운 좋게 성공할 수 있습니다. <strong>10건씩 돌려봐야 에러가 나옵니다.</strong> 데이터가 부족하거나, 이미지가 없거나, API 한도에 걸리는 등 실전에서 나올 문제를 미리 발견해야 합니다.</p>
@@ -1408,13 +1478,18 @@ Gemini가 JSON 형태로 정리해서 돌려주면
 </tbody></table>
 <div class="box tip"><div class="box-t">에러 대응 = 바이브코딩의 핵심</div><p>에러 메시지를 <strong>그대로 복사</strong> → AI에게 보여주기 → "이 에러 어떻게 해?" — 10번 중 9번 해결됩니다. 안 되면 로그 전체를 보여주세요.</p></div></div>
 <div class="box tip"><div class="box-t">환경마다 다릅니다</div><p>서버 환경, 설정, 데이터에 따라 결과가 다를 수 있습니다. 에러가 나거나 예상과 다르면 <strong>AI에게 상황을 설명하고 함께 해결</strong>해 나가세요. 그 과정 자체가 실력이 됩니다.</p></div>
+
+<div class="box" style="border:1px solid var(--gold-d);background:rgba(201,168,76,.04)"><div class="box-t" style="color:var(--gold)">📍 여기까지 완료한 것</div>
+<p>✅ 서버 환경 (CH01~07) → 기획 & 코드 생성 (CH08~17) → 배포 & 테스트 (CH18~19)</p>
+<p><strong>시스템이 돌아가는 것을 확인했습니다.</strong> 다음부터는 SEO 설정, 자동 실행 스케줄, 글 디자인 등 마무리 단계입니다. 거의 다 왔습니다!</p>
+</div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(18)">← 배포·설정</button><button class="ch-btn" onclick="go(20)">다음: SEO →</button></div>
 </div>
 
 
 
 <div class="ch" data-ch="20">
-<div class="ch-head"><div class="ch-num">Chapter 20</div><h2>SEO 최적화</h2><p class="ch-desc">먼저 RankMath 설정, 그 다음 코드 추가.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 20</div><h2>검색엔진에 노출시키기 — SEO</h2><p class="ch-desc">RankMath 설정 + 서치콘솔 등록 + 코드 추가.</p></div>
 <div class="ch-summary">💬 RankMath 설치하고 SEO 코드를 추가합니다.</div>
 <div class="s"><h3>1단계: RankMath 플러그인 설치 & 설정 마법사</h3>
 <p>SEO의 기본은 <strong>RankMath</strong> 플러그인이 해줍니다. 먼저 이걸 깔고 설정 마법사를 완료하세요.</p>
@@ -1499,7 +1574,7 @@ Open Graph 태그 자동 생성 코드 만들어줘.
 
 
 <div class="ch" data-ch="21">
-<div class="ch-head"><div class="ch-num">Chapter 21</div><h2>크론탭 자동화 & 슬랙</h2><p class="ch-desc">시간표 자동 실행 + 권한 설정 + 슬랙 알림.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 21</div><h2>매일 자동 실행 & 알림 설정</h2><p class="ch-desc">크론탭으로 시간표 자동 실행 + 슬랙 알림.</p></div>
 <div class="ch-summary">💬 정해진 시간에 자동으로 돌아가게 설정합니다.</div>
 <div class="s"><h3>⏰ 크론탭 = 알람 시계</h3>
 <p>"매일 몇 시에 이 파일 실행해" 설정하면 서버가 알아서 합니다.</p></div>
@@ -1598,7 +1673,7 @@ Webhook URL은 config에서 가져오기.
 
 
 <div class="ch" data-ch="22">
-<div class="ch-head"><div class="ch-num">Chapter 22</div><h2>글 꾸미기 (CSS)</h2><p class="ch-desc">발행된 글을 예쁘게.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 22</div><h2>발행된 글 디자인 다듬기</h2><p class="ch-desc">CSS로 자동 발행된 글을 예쁘게 꾸밉니다.</p></div>
 <div class="ch-summary">💬 발행된 글을 예쁘게 꾸밉니다. CSS = 글의 색상, 크기, 배치를 정하는 디자인 코드.</div>
 <div class="s"><h3>🎨 AI에게 CSS 받아서 적용</h3>
 <div class="prompt"><div class="prompt-h">🤖 AI에게 이렇게</div>
@@ -1640,7 +1715,7 @@ Webhook URL은 config에서 가져오기.
   <tr><td>AWS EC2</td><td>무료</td><td>~$8/월 (t3.micro 유지)</td></tr>
   <tr><td>도메인</td><td>~$0.75/월 (연 $9)</td><td>동일</td></tr>
   <tr><td>Cloudflare</td><td>무료</td><td>무료</td></tr>
-  <tr><td>Gemini API</td><td>무료 티어</td><td>무료 (초과 시 과금)</td></tr>
+  <tr><td>Gemini API</td><td>무료 크레딧 $300</td><td>사용한 만큼 과금</td></tr>
   <tr><td>Slack</td><td>무료</td><td>무료</td></tr>
   <tr><td><strong>합계</strong></td><td><strong>~$1/월</strong></td><td><strong>~$10~20/월</strong></td></tr>
 </tbody></table>
@@ -1671,6 +1746,11 @@ Webhook URL은 config에서 가져오기.
     <button onclick="submitLecture()" style="padding:.7rem 2rem;background:var(--gold);color:var(--bg);border:none;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:var(--font);transition:all .25s">강의 신청하기</button>
   </div>
   <p id="lecture-msg" style="text-align:center;font-size:.85rem;margin-top:.8rem;color:var(--gold);display:none"></p>
+</div>
+
+<div class="box" style="border:1px solid var(--gold-d);background:rgba(201,168,76,.04)"><div class="box-t" style="color:var(--gold)">🎉 전체 완료!</div>
+<p>✅ 서버 환경 (CH01~07) → ✅ 기획 & 코드 생성 (CH08~17) → ✅ 배포 & 테스트 (CH18~19) → ✅ SEO + 자동화 + 마무리 (CH20~23)</p>
+<p><strong>자동 포스팅 시스템이 완성되었습니다.</strong> 이제 서버가 매일 알아서 데이터를 수집하고, AI가 글을 쓰고, 워드프레스에 자동으로 발행합니다. 슬랙으로 결과를 확인하면서 가끔 로그만 점검해주세요.</p>
 </div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(22)">← 글 꾸미기</button><button class="ch-btn off">끝 🎉</button></div>
 </div>
@@ -1738,5 +1818,12 @@ function submitLecture(){
   });
 }
 </script>
+
+<a href="https://pf.kakao.com/_vYwin/chat" target="_blank" id="float-btn" style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:150;display:flex;align-items:center;gap:.4rem;padding:.6rem 1.1rem;background:var(--gold);color:var(--bg);border-radius:50px;font-size:.82rem;font-weight:700;font-family:var(--font);text-decoration:none;box-shadow:0 4px 16px rgba(201,168,76,.35);transition:all .25s" onmouseenter="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 20px rgba(201,168,76,.5)'" onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(201,168,76,.35)'">💬 질문하기</a>
+
+<style>
+@media(max-width:640px){#float-btn{padding:.5rem .9rem;font-size:.75rem;bottom:1rem;right:1rem}}
+</style>
+
 </body>
 </html>
