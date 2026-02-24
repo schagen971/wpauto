@@ -974,10 +974,10 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 
 
 <div class="ch" data-ch="13">
-<div class="ch-head"><div class="ch-num">Chapter 13</div><h2>크롤링할 데이터 위치 찾기</h2><p class="ch-desc">브라우저를 자동 조종합니다. 그리고 "어디를 긁을지" AI에게 알려주는 법.</p></div>
+<div class="ch-head"><div class="ch-num">Chapter 13</div><h2>Puppeteer로 크롤링할 데이터 위치 찾기</h2><p class="ch-desc">Puppeteer로 브라우저를 자동 조종합니다. 그리고 "어디를 긁을지" AI에게 알려주는 법.</p></div>
 <div class="ch-summary">💬 어떤 사이트에서 어떤 부분을 긁을지 확인합니다.</div>
 <div class="s"><h3>🕷 쉽게 말하면</h3>
-<p>사람이 브라우저에서 하는 모든 행동(접속, 스크롤, 클릭, 복사)을 <strong>코드가 자동으로</strong> 수행합니다. 여러분이 매일 사이트에 들어가서 데이터를 하나하나 복사하는 대신, 코드가 대신 해줍니다. 눈에 안 보이는 크롬을 서버에서 돌리는 겁니다.</p>
+<p>사람이 브라우저에서 하는 모든 행동(접속, 스크롤, 클릭, 복사)을 <strong>코드가 자동으로</strong> 수행합니다. 이 역할을 하는 도구가 <strong>Puppeteer(퍼페티어)</strong>입니다. 눈에 안 보이는 크롬을 서버에서 돌려서, 여러분 대신 데이터를 긁어옵니다.</p>
 <div class="box tip"><div class="box-t">데이터가 이미 있다면</div><p>이 챕터와 다음 챕터를 건너뛰고 Chapter 15(이미지)로 가세요.</p></div></div>
 
 <div class="s"><h3>🛡 사람처럼 행동하기</h3>
@@ -1020,14 +1020,14 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 
 <div class="box tip"><div class="box-t">이것도 어려우면</div><p>AI에게 <strong>"크롬 F12 개발자 도구에서 요소 선택하고 Copy element(요소 복사) 하는 방법을 단계별로 자세하게 알려줘"</strong>라고 물어보세요. 또는 방법 2(페이지 소스 통째로 복사)를 쓰면 이 과정이 필요 없습니다.</p></div>
 <div class="prompt"><div class="prompt-h">🤖 AI에게 이렇게</div>
-<div class="prompt-b">"이 사이트를 크롤링하려고 해: <span class="v">[URL]</span>
+<div class="prompt-b">"이 사이트를 <strong>Puppeteer</strong>로 크롤링하려고 해: <span class="v">[URL]</span>
 
 가져올 데이터:
 - 호텔 이름: 이 요소에 있어 → <span class="v">[Copy element 결과 붙여넣기]</span>
 - 가격: 이 요소 → <span class="v">[Copy element 결과]</span>
 - 평점: 이 요소 → <span class="v">[Copy element 결과]</span>
 
-이 요소들로 크롤링하면 데이터를 가져올 수 있을까?
+Puppeteer로 이 요소들을 크롤링하는 코드 만들어줘.
 빠진 거 있으면 알려줘."</div></div></div>
 
 <div class="s"><h3>방법 2: 페이지 소스 전체 복사</h3>
@@ -1037,13 +1037,14 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
   <div class="ni"><div class="nb">3</div><div class="nt">AI에게 통째로 보여주기</div></div>
 </div>
 <div class="prompt"><div class="prompt-h">🤖 AI에게 이렇게</div>
-<div class="prompt-b">"이 사이트를 크롤링하려고 해: <span class="v">[URL]</span>
+<div class="prompt-b">"이 사이트를 <strong>Puppeteer</strong>로 크롤링하려고 해: <span class="v">[URL]</span>
 
 아래가 이 페이지의 전체 소스야:
 <span class="v">[Ctrl+A로 복사한 소스 전체 붙여넣기]</span>
 
 여기서 <span class="v">[가져올 데이터 항목]</span>을 가져오려면
-어떤 요소를 잡아야 하는지 알려줘."</div></div>
+어떤 요소를 잡아야 하는지 알려주고,
+Puppeteer 크롤링 코드도 만들어줘."</div></div>
 <div class="box tip"><div class="box-t">어떤 방법이든</div><p>핵심은 <strong>"이 사이트에서 이 부분을 가져와야 해"</strong>를 AI에게 정확히 보여주는 겁니다. 복사해서 보여주기만 하면 AI가 알아서 코드를 만들어줍니다.</p></div>
 <div class="box tip"><div class="box-t">이 챕터 vs 다음 챕터</div><p>이 챕터는 <strong>"어디를 긁을지 찾는 법"</strong>이고, 다음 챕터는 <strong>"찾은 걸 AI에게 어떻게 전달하는지"</strong>입니다. 여기서 메모장에 정리해둔 내용을 다음 챕터에서 그대로 씁니다.</p></div></div>
 <div class="ch-nav"><button class="ch-btn" onclick="go(12)">← Gemini API</button><button class="ch-btn" onclick="go(14)">다음: 데이터 크롤링 →</button></div>
@@ -1063,14 +1064,14 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 <div class="s"><h3>방식 1: 요소 지정 크롤링</h3>
 <p>앞 챕터에서 F12로 찾아둔 셀렉터로 <strong>항목별로 쪼개서</strong> 가져옵니다. 정확하고 깔끔합니다.</p>
 <div class="prompt"><div class="prompt-h">🤖 Claude에게 이렇게</div>
-<div class="prompt-b">"이 사이트를 크롤링하려고 해: <span class="v">[URL]</span>
+<div class="prompt-b">"이 사이트를 <strong>Puppeteer</strong>로 크롤링하려고 해: <span class="v">[URL]</span>
 
 앞에서 확인한 요소 정보:
 <span class="v">[F12로 복사한 요소 정보]</span>
 
 수집할 데이터: <span class="v">[이름, 가격, 평점, 이미지URL 등]</span>
 
-크롤링 조건을 같이 정리하자:
+Puppeteer 크롤링 조건을 같이 정리하자:
 - stealth 플러그인으로 봇 탐지 우회
 - 2~5초 랜덤 딜레이 (사람처럼)
 - 중복 데이터 처리 (INSERT ON DUPLICATE KEY UPDATE)
@@ -1081,9 +1082,9 @@ SQL은 나중에 만들 거니까 지금은 구조만."</div></div>
 <div class="s"><h3>방식 2: 통째로 가져와서 AI 정리</h3>
 <p>페이지를 통째로 긁어온 뒤 <strong>Gemini에게 정리시키는</strong> 방식입니다. 셀렉터를 안 찾아도 돼서 초보자에게 더 쉽습니다.</p>
 <div class="prompt"><div class="prompt-h">🤖 Claude에게 이렇게</div>
-<div class="prompt-b">"이 사이트를 크롤링하려고 해: <span class="v">[URL]</span>
+<div class="prompt-b">"이 사이트를 <strong>Puppeteer</strong>로 크롤링하려고 해: <span class="v">[URL]</span>
 
-페이지를 통째로 가져온 뒤
+Puppeteer로 페이지를 통째로 가져온 뒤
 Gemini에게 보내서 아래 항목을 정리시키고 싶어:
 <span class="v">[이름, 가격, 평점, 이미지URL, 설명 등]</span>
 
